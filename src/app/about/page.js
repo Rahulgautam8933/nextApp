@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './About.css'
 import Card from '@/components/cards/Card';
-const page = () => {
+const Page = () => {
 
     const [userData, setUserData] = useState([]);
 
@@ -75,4 +75,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
