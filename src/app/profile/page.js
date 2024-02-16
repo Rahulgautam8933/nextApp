@@ -7,6 +7,7 @@ const page = () => {
 
                 <div className='container m-auto p-2 '>
                     <h1>this is profile page</h1>
+                    {/* <img src="/Assets/img/img1.png" alt="" /> */}
                 </div>
             </div>
         </>
