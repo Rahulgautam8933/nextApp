@@ -5,6 +5,13 @@ import './About.css'
 import Card from '@/components/cards/Card';
 const Page = () => {
 
+
+    const userData1 = [
+        {
+            title: "title", thumbnail: "https://img.freepik.com/free-photo/beautiful-view-mountains-covered-snow-annapurna-conservation-area-chhusang-nepal_181624-15705.jpg?size=626&ext=jpg&ga=GA1.1.1431884988.1699449062&semt=sph", description: "discription"
+        }
+    ]
+
     const [userData, setUserData] = useState([]);
 
     const [number, senumber] = useState(10)

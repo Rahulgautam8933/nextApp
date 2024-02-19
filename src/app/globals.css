@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 
+
+.backgroung-img {
+  background-image: url("../../public/Assets/img/home-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

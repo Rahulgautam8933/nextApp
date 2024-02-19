@@ -1,23 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Card = ({ title, thumbnail, description }) => {
+const Card = ({ title, thumbnail, description, price }) => {
+
+    const maxLength = 50;
+    function sliceText(text, maxLength) {
+        // If the text length is greater than the maximum length, slice it and append '...' at the end
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text; // Return the original text if it's within the maximum length
+    }
+
+
     return (
         <>
 
-            <div className='m-2 z-0'>
-                <div className="card card-compact  bg-base-100 shadow-xl">
-                    <figure>
-                        <Image
-                            className='aspect-video  bg-cover' src={thumbnail} alt="Shoes"
-                        />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{title}</h2>
-                        <p>{description}</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
-                        </div>
+            <div className="card  bg-base-100 shadow-xl">
+                <figure><img src={thumbnail} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">{sliceText(title, 12)}</h2>
+                    <h1>&#8377; {price}</h1>
+                    <p>{sliceText(description, 30)}</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-neutral">Add To Cart</button>
                     </div>
                 </div>
             </div>
