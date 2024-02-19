@@ -11,7 +11,7 @@ const Headers = () => {
 
     return (
         <>
-            <div className=" flex navbar bg-white fixed z-40">
+            <div className=" flex navbar bg-slate-200 fixed z-40">
                 <div className="lg:hidden md:hidden">
                     <Sidebar />
                 </div>

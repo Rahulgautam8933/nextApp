@@ -13,7 +13,10 @@
     "bootstrap": "^5.3.2",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-rating-stars-component": "^2.2.0",
+    "react-star-ratings": "^2.3.0",
+    "swiper": "^11.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

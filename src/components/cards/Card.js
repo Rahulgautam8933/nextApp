@@ -1,7 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 
-const Card = ({ title, thumbnail, description, price }) => {
+const Card = ({ title, thumbnail, description, price, id }) => {
 
     const maxLength = 50;
     function sliceText(text, maxLength) {
@@ -16,17 +17,19 @@ const Card = ({ title, thumbnail, description, price }) => {
     return (
         <>
 
-            <div className="card  bg-base-100 shadow-xl">
-                <figure><img src={thumbnail} alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{sliceText(title, 12)}</h2>
-                    <h1>&#8377; {price}</h1>
-                    <p>{sliceText(description, 30)}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-neutral">Add To Cart</button>
+            <Link href={`/about/${id}`}>
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure><img src={thumbnail} alt="Shoes" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">{sliceText(title, 12)}</h2>
+                        <h1>&#8377; {price}</h1>
+                        <p>{sliceText(description, 30)}</p>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-neutral">Add To Cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

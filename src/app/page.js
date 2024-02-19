@@ -65,7 +65,7 @@ export default function Home() {
           latestProduct.map((ele, ind) => {
             return (
               <>
-                <Card title={ele?.title} thumbnail={ele?.thumbnail} description={ele?.description} price={ele?.price} />
+                <Card title={ele?.title} thumbnail={ele?.thumbnail} description={ele?.description} price={ele?.price} id={ele?.id} />
               </>
             )
           })
