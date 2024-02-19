@@ -25,10 +25,6 @@ const Page = () => {
             setProductCount(productCount - 1)
         }
     }
-
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-    };
     return (
         <>
 
@@ -144,7 +140,7 @@ const Page = () => {
 
 
                             <button className='btn btn-neutral' onClick={dicresecount}> -</button>
-                            <input type="text" value={productCount} className="input  w-12  mx-3 input-success " disabled />
+                            <input type="text" value={productCount} className="input  w-12 text-center p-0 mx-3 input-success " disabled />
                             <button className='btn btn-neutral' onClick={() => setProductCount(productCount + 1)}> +</button>
 
                         </div>
@@ -153,6 +149,9 @@ const Page = () => {
                     </div>
 
                 </div>
+
+
+                <h2></h2>
 
             </div>
 
