@@ -1,46 +1,38 @@
+"use client"
+
 import Button from "@/components/button/Button";
 import Card from "@/components/cards/Card";
 import Headers from "@/components/headers/Headers";
 import Sidebar from "@/components/sidebar/Sidebar";
+import axios from "axios";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
+  const [product, setProduct] = useState([])
 
-  const latestProduct = [
-    {
-      id: "1",
-      title: "product1",
-      description: "product discription1",
-      price: "1200",
-      qyt: "12",
-      thumbnail: "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
-    },
-    {
-      id: "2",
-      title: "product2",
-      description: "product discription2",
-      price: "1200",
-      qyt: "12",
-      thumbnail: "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
-    },
-    {
-      id: "3",
-      title: "product3",
-      description: "product discription3",
-      price: "1200",
-      qyt: "12",
-      thumbnail: "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
-    },
-    {
-      id: "4",
-      title: "product4",
-      description: "product discription4",
-      price: "1200",
-      qyt: "12",
-      thumbnail: "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
-    },
-  ]
+  const [loading, setLoading] = useState(false)
+
+
+
+  console.log(product);
+
+  const getProducts = async () => {
+    try {
+      const res = await axios.get(`http://localhost:4000/api/v1/products/lastFour`);
+      setProduct(res?.data?.products)
+      setLoading(true)
+    } catch (error) {
+      console.log(error);
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
 
 
   return (
@@ -57,21 +49,38 @@ export default function Home() {
 
       <h4 className="text-center my-5 font-bold text-2xl md:text-gl">Latest Products</h4>
 
-      <div className=' container  m-auto   my-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
+      {
+        !loading ?
+          <div style={{ width: "90%" }} className=' container  m-auto   my-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
+
+            {
+              Array.from({ length: 4 }).map((_, index) => (
+                <div className="flex flex-col gap-4 " key={index}>
+                  <div className="skeleton h-32 w-full"></div>
+                  <div className="skeleton h-4 "></div>
+                  <div className="skeleton h-4 w-full"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                </div>
+              ))
+            }
+          </div> : <div style={{ width: "90%" }} className=' container  m-auto   my-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
+
+            {
+              product.map((ele, ind) => {
+                return (
+                  <>
+                    <Card title={ele?.name} thumbnail={ele?.thumbnail?.url} description={ele?.description} price={ele?.price} id={ele?._id} />
+                  </>
+                )
+              })
+            }
+
+          </div>
 
 
+      }
 
-        {
-          latestProduct.map((ele, ind) => {
-            return (
-              <>
-                <Card title={ele?.title} thumbnail={ele?.thumbnail} description={ele?.description} price={ele?.price} id={ele?.id} />
-              </>
-            )
-          })
-        }
 
-      </div>
 
 
 

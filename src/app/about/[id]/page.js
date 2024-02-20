@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -10,12 +10,18 @@ import { IoClose } from "react-icons/io5";
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import StarRatings from 'react-star-ratings';
 import { useParams, usePathname } from 'next/navigation';
+import axios from 'axios';
 
 const Page = () => {
 
     const path = useParams();
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [productCount, setProductCount] = useState(1)
+    const [singleProduct, setSingleProduct] = useState()
+    const [img, setImg] = useState([])
+
+    console.log(singleProduct);
+    console.log(img);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
 
@@ -33,6 +39,24 @@ const Page = () => {
             setProductCount(productCount - 1)
         }
     }
+
+
+    const getSingleProduct = async () => {
+        try {
+            const res = await axios.get(`http://localhost:4000/api/v1/product/${path.id}`)
+            setSingleProduct(res?.data?.product);
+            setImg(res?.data?.product?.images)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getSingleProduct();
+    }, [])
+
+
+
 
     return (
         <>
@@ -55,36 +79,19 @@ const Page = () => {
                             modules={[FreeMode, Navigation, Thumbs]}
 
                         >
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                            </SwiperSlide>
+
+                            {
+                                img.map((ele, ind) => {
+                                    return (
+                                        <>
+                                            <SwiperSlide>
+                                                <img src={ele?.url} />
+                                            </SwiperSlide>
+                                        </>
+                                    )
+                                })
+                            }
+
                         </Swiper>
                         <Swiper
                             onSwiper={setThumbsSwiper}
@@ -96,47 +103,29 @@ const Page = () => {
                             modules={[FreeMode, Navigation, Thumbs]}
                             className="mySwiper"
                         >
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                            </SwiperSlide>
+                            {
+                                img.map((ele, ind) => {
+                                    return (
+                                        <>
+                                            <SwiperSlide>
+                                                <img src={ele?.url} />
+                                            </SwiperSlide>
+                                        </>
+                                    )
+                                })
+                            }
+
                         </Swiper>
 
                     </div>
 
                     <div>
-                        <h1 className='text-2xl'>Product name</h1>
-                        <h3 className='text-xl my-3'> &#8377; 2200</h3>
-                        <p className='my-3'>A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted.</p>
+                        <h1 className='text-2xl'>{singleProduct?.name}</h1>
+                        <h3 className='text-xl my-3'> &#8377; {singleProduct?.price}</h3>
+                        <p className='my-3'>{singleProduct?.description}</p>
                         <div className='text-xl'>
                             <StarRatings
-                                rating={2.5}
+                                rating={singleProduct?.ratings}
                                 starRatedColor="orange"
                                 // changeRating={this.changeRating}
                                 numberOfStars={5}

@@ -18,14 +18,14 @@ const Card = ({ title, thumbnail, description, price, id }) => {
         <>
 
             <Link href={`/about/${id}`}>
-                <div className="card  bg-base-100 shadow-xl">
+                <div className="  card  bg-base-100 shadow-xl">
                     <figure><img src={thumbnail} alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{sliceText(title, 12)}</h2>
-                        <h1>&#8377; {price}</h1>
-                        <p>{sliceText(description, 30)}</p>
+                    <div className="md:p-3 p-3 card-body">
+                        <h2 className="card-title md:text-lg sm:text-base  text-xs">{sliceText(title, 12)}</h2>
+                        <h1 className='md:text-lg sm:text-base  text-xs'>&#8377; {price}</h1>
+                        <p className='md:text-lg sm:text-base  text-xs'>{sliceText(description, 30)}</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-neutral">Add To Cart</button>
+                            <button className=" px-3 btn btn-neutral md:text-lg sm:text-base  text-xs">Add To Cart</button>
                         </div>
                     </div>
                 </div>

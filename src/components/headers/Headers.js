@@ -22,18 +22,8 @@ const Headers = () => {
                     <ul className='flex gap-9'>
                         <li><Link href="/"> Home</Link></li>
                         <li><Link href="/about"> About</Link></li>
-
-                        <div className="dropdown dropdown-center">
-                            <button> profile</button>
-
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link href="/profile"> profile</Link></li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
-                            </ul>
-                        </div>
-                        <li><a href="/studentlist"> Student List</a></li>
-                        <li><a href="/contactUs"> Contact Us</a></li>
+                        <li><Link href="/products"> Products</Link></li>
+                        <li><Link href="/contactUs"> Contact Us</Link></li>
                     </ul>
 
                 </div>
