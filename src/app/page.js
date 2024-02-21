@@ -36,7 +36,9 @@ export default function Home() {
 
 
   return (
-    <>
+    <div className="bg-slate-100">
+
+
       <div className="hero min-h-screen  backgroung-img">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -47,11 +49,11 @@ export default function Home() {
         </div>
       </div>
 
-      <h4 className="text-center my-5 font-bold text-2xl md:text-gl">Latest Products</h4>
+      <h4 className="text-center py-5 font-bold text-2xl md:text-gl">Latest Products</h4>
 
       {
         !loading ?
-          <div style={{ width: "90%" }} className=' container  m-auto   my-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
+          <div style={{ width: "90%" }} className=' container  m-auto    py-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
 
             {
               Array.from({ length: 4 }).map((_, index) => (
@@ -63,7 +65,7 @@ export default function Home() {
                 </div>
               ))
             }
-          </div> : <div style={{ width: "90%" }} className=' container  m-auto   my-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
+          </div> : <div style={{ width: "90%" }} className=' container  m-auto   py-10 grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2  grid-cols-2 gap-4'>
 
             {
               product.map((ele, ind) => {
@@ -85,7 +87,7 @@ export default function Home() {
 
 
 
-    </>
+    </div>
 
   );
 }
