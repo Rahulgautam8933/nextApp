@@ -39,7 +39,7 @@ const Page = () => {
                     <h1 className='about-heading'> using custom css</h1>
                 </div>
 
-                <div style={{ width: "90%" }} className=' m-auto my-10 grid md:grid-cols-12 grid-cols-1 gap-1 '>
+                <div style={{ width: "90%" }} className=' m-auto py-10 grid md:grid-cols-12 grid-cols-1 gap-1 '>
 
                     <div className='col-span-2 relative'>
                         <div>

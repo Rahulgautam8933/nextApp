@@ -35,6 +35,7 @@ const Sidebar = () => {
 
                             <li className={` ${pathName == '/' ? 'text-primary font-bold ' : ''}`} ><Link href="/" onClick={closeSidebar} >Home</Link></li>
                             <li className={` ${pathName == '/about' ? 'text-primary font-bold ' : ''}`} ><Link href="/about" onClick={closeSidebar} >About Us</Link></li>
+                            <li className={` ${pathName == '/products' ? 'text-primary font-bold ' : ''}`}><Link href="/products" onClick={closeSidebar} > Products</Link></li>
                             <li className={` ${pathName == '/profile' ? 'text-primary font-bold ' : ''}`} ><Link href="/profile" onClick={closeSidebar} >Profile</Link></li>
                             <li className={` ${pathName == '/contactUs' ? 'text-primary font-bold ' : ''}`} ><Link href="/contactUs" onClick={closeSidebar} >Contact Us</Link></li>
                         </ul>

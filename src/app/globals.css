@@ -24,14 +24,14 @@ body {
   height: 100%;
 }
 
-body {
+/* body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
-}
+} */
 
 .swiper {
   width: 100%;
@@ -63,7 +63,7 @@ body {
 }
 
 body {
-  background: #000;
+  background-color: rgb(241 245 249);
   color: #000;
 }
 
