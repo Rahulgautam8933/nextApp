@@ -2,7 +2,14 @@ import React from 'react'
 
 const page = () => {
     return (
-        <div>page</div>
+        <>
+            <div className='bg-base-200'>
+
+                <div className='container m-auto p-2 '>
+                    <h1>this is profile client page</h1>
+                </div>
+            </div>
+        </>
     )
 }
 

@@ -57,8 +57,8 @@ export default function Home() {
 
             {
               Array.from({ length: 4 }).map((_, index) => (
-                <div className="flex flex-col gap-4 " key={index}>
-                  <div className="skeleton bg-slate-50  h-32 w-full"></div>
+                <div className="flex flex-col gap-4  " key={index}>
+                  <div className="skeleton bg-slate-50 text-slate-300  h-32 w-full"></div>
                   <div className="skeleton bg-slate-50 h-4 "></div>
                   <div className="skeleton bg-slate-50 h-4 w-full"></div>
                   <div className="skeleton bg-slate-50 h-4 w-full"></div>
@@ -81,10 +81,6 @@ export default function Home() {
 
 
       }
-
-
-
-
 
 
     </div>

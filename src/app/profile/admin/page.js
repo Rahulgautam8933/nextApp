@@ -4,7 +4,7 @@ const takeTime = async () => {
     await new Promise((resolve) => {
         setTimeout(resolve, 3000)
     })
-}
+} 
 
 const page = async () => {
     await takeTime()

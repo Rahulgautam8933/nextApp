@@ -24,14 +24,6 @@ body {
   height: 100%;
 }
 
-/* body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-} */
 
 .swiper {
   width: 100%;
@@ -110,30 +102,6 @@ body {
 }
 
 
-
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-} */
-
-/* @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
+.skeleton {
+  background-image: linear-gradient(105deg, rgb(5 5 239 / 25%) 0%, rgb(215, 215, 226) 40%, var(--fallback-b1, oklch(var(--b1))) 50%, rgb(215, 215, 226) 60%, rgb(215, 215, 226) 100%);
+}
