@@ -56,7 +56,7 @@ body {
 
 body {
   background-color: rgb(241 245 249);
-  color: #000;
+  /* color: #000; */
 }
 
 .swiper {
@@ -103,5 +103,5 @@ body {
 
 
 .skeleton {
-  background-image: linear-gradient(105deg, rgb(5 5 239 / 25%) 0%, rgb(215, 215, 226) 40%, var(--fallback-b1, oklch(var(--b1))) 50%, rgb(215, 215, 226) 60%, rgb(215, 215, 226) 100%);
+  background-image: linear-gradient(105deg, rgb(5 5 239 / 25%) 0%, rgb(215, 215, 226) 40%, var(--fallback-b1, oklch(var(--b1))) 80%, rgb(215, 215, 226) 60%, rgb(215, 215, 226) 100%);
 }
